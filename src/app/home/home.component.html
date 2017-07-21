@@ -19,7 +19,7 @@
     <label for="address">address</label>
     <input type="text" #address>
     <br>
-    <button type="button" name="button" (click)="cacheForm(cacheName.value, description.value, address.value)">Create a Cache</button>
+    <button type="button" name="button" (click)="cacheForm(cacheName.value, description.value, address.value)" (click)="getLatlng(address.value)">Create a Cache</button>
   </div>
   <h3>Or Click The Button Below To Start Finding Caches</h3>
   <button type="button" name="button" routerLink="locate-cache">Lets Go!</button>

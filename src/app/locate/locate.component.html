@@ -1,4 +1,12 @@
 <h1>Locate an object using Google GeoCode Service</h1>
+<h3>These are the caches that have not been found</h3>
+<div  *ngFor="let cache of notFoundCaches" >
+  <ul>
+    <li>Name: {{cache.name}}</li>
+    <li>Description: {{cache.description}}</li>
+    <li>Location: {{cache.address}}</li>
+  </ul>
+</div>
 <form>
   <div class="form-group">
     <label for="address">Locate by address</label>
