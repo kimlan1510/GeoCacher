@@ -1,3 +1,4 @@
+<h1 *ngIf="currentUser">Welcome {{currentUser.name}}</h1>
 <h1>Locate an object using Google GeoCode Service</h1>
 <h3>These are the caches that have not been found</h3>
 <div  *ngFor="let cache of notFoundCaches" >
@@ -5,6 +6,7 @@
     <li>Name: {{cache.name}}</li>
     <li>Description: {{cache.description}}</li>
     <li>Location: {{cache.address}}</li>
+    <button type="button" name="button" (click)="foundCache(cache)">Found it!</button>
   </ul>
 </div>
 <form>

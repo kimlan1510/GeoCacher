@@ -1,7 +1,7 @@
 import { Geocache } from './geocache.model';
 
 export class User {
-  public geocacheFound: Geocache[] = [];
-  public geocacheCreated: Geocache[] = [];
+  public geocacheFound: any[] = ["geocache found"];
+  public geocacheCreated: any[] = ["geocache created"];
   constructor(public name: string){}
 }

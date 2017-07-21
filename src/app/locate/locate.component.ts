@@ -25,7 +25,6 @@ export class LocateComponent implements OnInit {
     });
 
     this.firebaseService.getCaches().subscribe(response => {
-      console.log(response);
       for(let cache of response){
         if(cache.found == false){
           this.notFoundCaches.push(cache);
@@ -46,6 +45,11 @@ export class LocateComponent implements OnInit {
       this.coordinates = response.json().results[0].geometry.location;
       console.log(this.coordinates);
     });
+  }
+
+  foundCache(cache: Geocache){
+    this.currentUser.geocacheFound.push(cache);
+    this.firebaseService.updateCache(cache, this.currentUser);
   }
 
 
