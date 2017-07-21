@@ -1,3 +1,13 @@
-<p>
-  locate works!
-</p>
+<h1>Locate an object using google GeoCode Service</h1>
+<form>
+  <div class="form-group">
+    <label for="address">Locate by address</label>
+    <input type="text" placeholder="address" #address>
+    <button (click)="getLatlong(address.value)">Get Coordinates</button>
+    <br>
+    <label for="latlng"> Locate by latitude and longitude</label>
+    <input type="text" placeholder="latitude" #lat>
+    <input type="text" placeholder="longitude" #lng>
+    <button (click)="getAddress(lat.value, lng.value)">Get Address</button>
+  </div>
+</form>
