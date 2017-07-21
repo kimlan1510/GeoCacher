@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { GeoService } from '../geo.service';
 
 @Component({
   selector: 'app-locate',
   templateUrl: './locate.component.html',
   styleUrls: ['./locate.component.css']
 })
-export class LocateComponent implements OnInit {
+export class LocateComponent{
+  location: string = null;
 
-  constructor() { }
+  constructor(private geoService: GeoService) { }
 
-  ngOnInit() {
+  getAddess(lat: string, lng: string){
+    
   }
+
+
 
 }
