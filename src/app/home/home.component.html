@@ -1,24 +1,25 @@
 <form>
   <div class="form-group">
     <label for="name">User Name</label>
-    <input type="text" #name>
+    <input type="text" #userName>
+    <button (click)="userForm(userName.value)">Create user</button>
   </div>
-  <button (click)="userForm(name.value)">Create user</button>
 </form>
 
-<div>
+<div *ngIf="user">
+  <h1>Welcome {{user.name}}!</h1>
   <h3>Create your own cache</h3>
   <div class="form-group">
-    <label for="name">User Name</label>
-    <input type="text" #name>
+    <label for="name">Cache Name</label>
+    <input type="text" #cacheName>
     <br>
     <label for="description">Cache description</label>
     <input type="text" #description>
     <br>
     <label for="address">address</label>
-    <input type="text" #adress>
+    <input type="text" #address>
     <br>
-    <button type="button" name="button" (click)="cacheForm(name.value, description.value, address.value)"></button>
+    <button type="button" name="button" (click)="cacheForm(cacheName.value, description.value, address.value)">Create a Cache</button>
   </div>
   <h3>Or Click The Button Below To Start Finding Caches</h3>
   <button type="button" name="button" routerLink="locate-cache">Lets Go!</button>

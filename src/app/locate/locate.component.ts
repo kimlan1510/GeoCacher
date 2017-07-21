@@ -1,17 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { GeoService } from '../geo.service';
+import { FirebaseService } from '../firebase.service';
+import { FirebaseListObservable } from 'angularfire2/database';
+import { User } from '../user.model';
+import { Geocache } from '../geocache.model';
 
 @Component({
   selector: 'app-locate',
   templateUrl: './locate.component.html',
   styleUrls: ['./locate.component.css'],
-  providers: [ GeoService ]
+  providers: [ GeoService, FirebaseService ]
 })
-export class LocateComponent{
+export class LocateComponent implements OnInit {
   location;
   coordinates;
 
-  constructor(private geoService: GeoService) { }
+  constructor(private geoService: GeoService, private firebaseService: FirebaseService) { }
+
+  ngOnInit(){
+    
+  }
 
   getAddress(lat: string, lng: string){
     this.geoService.getAddress(lat, lng).subscribe(response => {
