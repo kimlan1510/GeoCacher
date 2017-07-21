@@ -12,8 +12,8 @@ import { GeoService } from '../geo.service';
 })
 export class HomeComponent{
   userList;
+  currentUser;
   user: User;
-  userInFirebase;
   coordinates;
   constructor(private firebaseService: FirebaseService, private geoService: GeoService) { }
 
@@ -21,17 +21,19 @@ export class HomeComponent{
     var newUser: User = new User(name);
     this.user = newUser;
     this.firebaseService.addUser(newUser);
+    this.firebaseService.getUsers().subscribe(response => {
+      this.currentUser = response[response.length -1];
+    });
   }
 
   cacheForm(cacheName: string, description: string, address: string){
-    this.firebaseService.getUsers().subscribe(response => {
-      this.userInFirebase = response[response.length - 1];
-      console.log(this.userInFirebase);
-      console.log(this.userInFirebase.$key);
-      var newCache: Geocache = new Geocache(cacheName, description, address, this.userInFirebase.$key);
-      this.firebaseService.addCache(newCache);
-      alert("A Cache has been added to database!");
-    });
+    console.log(this.currentUser.$key);
+    var newCache = new Geocache(cacheName, description, address, this.currentUser.$key);
+    this.firebaseService.addCache(newCache);
+    this.currentUser.geocacheCreated.push(newCache);
+    this.firebaseService.updateUser(this.currentUser);
+    console.log(this.currentUser)
+    alert("A Cache has been added to database!");
   }
 
   getLatlng(address: string){

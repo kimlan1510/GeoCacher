@@ -39,14 +39,14 @@ export class FirebaseService {
   }
 
   updateCache(cache, currentUser){
-    const cacheInFirebase = this.getCacheById(cache.$key);
-    const userInFirebase = this.getUserById(currentUser.$key);
-    cacheInFirebase.update({found: true})
-    userInFirebase.update({geocacheFound: currentUser.geocacheFound});
+    const cacheInDatabase = this.getCacheById(cache.$key);
+    const userInDatabase = this.getUserById(currentUser.$key);
+    cacheInDatabase.update({found: true})
+    userInDatabase.update({geocacheFound: currentUser.geocacheFound});
   }
 
-  // updateUser(currentUser){
-  //   const userInFirebase = this.getUserById(currentUser.$key);
-  //   userInFirebase.update({geocacheCreated: currentUser.geocacheCreated});
-  // }
+  updateUser(currentUser){
+    const userInDatabase = this.getUserById(currentUser.$key);
+    userInDatabase.update({geocacheCreated: currentUser.geocacheCreated});
+  }
 }
