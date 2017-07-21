@@ -1,1 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  color: black;
+
+}
+
+body {
+  background-image: url("http://www.pptgrounds.com/wp-content/uploads/2017/05/Geometrical-Shapes-Powerpoint-Backgrounds.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 110vh;
+  background-position: center;
+  padding-bottom: 200px;
+  margin-top: 0px;
+}
+
+textarea {
+  width: 280px;
+  min-height: 125px;
+}
+
+input {
+  width: 280px;
+}
+
+.panel-section{
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  flex-wrap: wrap;
+}
+.panel {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   max-width: 300px;
+   min-width: 300px;
+   min-height: 375px;
+
+}
+.panel-body {
+  box-shadow: 1px 1px 1px grey;
+  background-color: #fffcf9;
+  position:relative;
+  padding: 40px;
+}
+
+.panel-body button {
+  position: absolute;
+  right:    0;
+  bottom:   0;
+  margin: 15px;
+}
+
+.panel-body:hover {
+  box-shadow: 3px 3px 3px grey;
+}
+
+button:hover {
+  background-color: yellow;
+}
+
+button {
+  box-shadow: 1px 1px 1px grey;
+}

@@ -48,6 +48,7 @@ export class LocateComponent implements OnInit {
   }
 
   foundCache(cache: Geocache){
+    this.notFoundCaches.splice(this.notFoundCaches.indexOf(cache), 1);
     this.currentUser.geocacheFound.push(cache);
     this.firebaseService.updateCache(cache, this.currentUser);
   }

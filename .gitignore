@@ -42,5 +42,5 @@ testem.log
 Thumbs.db
 
 # Api-Keys
-
+/src/app/firebase-api-keys.ts
 /src/app/api-keys.ts
