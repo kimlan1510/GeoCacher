@@ -14,11 +14,24 @@ import { Geocache } from '../geocache.model';
 export class LocateComponent implements OnInit {
   location;
   coordinates;
+  currentUser: User;
+  notFoundCaches: Geocache[] = [];
 
   constructor(private geoService: GeoService, private firebaseService: FirebaseService) { }
 
   ngOnInit(){
-    
+    this.firebaseService.getUsers().subscribe(response => {
+      this.currentUser = response[response.length - 1];
+    });
+
+    this.firebaseService.getCaches().subscribe(response => {
+      console.log(response);
+      for(let cache of response){
+        if(cache.found == false){
+          this.notFoundCaches.push(cache);
+        }
+      }
+    })
   }
 
   getAddress(lat: string, lng: string){
