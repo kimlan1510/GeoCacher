@@ -4,12 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 //import Firebase
-import { masterFirebaseConfig } from './api-keys';
+import { masterFirebaseConfig } from './firebase-api-keys';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 //import components
 import { AppComponent } from './app.component';
 import { LocateComponent } from './locate/locate.component';
+import { HomeComponent } from './home/home.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -21,7 +22,8 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    LocateComponent
+    LocateComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
