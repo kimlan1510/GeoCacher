@@ -8,19 +8,22 @@ import { GeoService } from '../geo.service';
   providers: [ GeoService ]
 })
 export class LocateComponent{
-  location: string = null;
+  location;
+  coordinates;
 
   constructor(private geoService: GeoService) { }
 
   getAddress(lat: string, lng: string){
     this.geoService.getAddress(lat, lng).subscribe(response => {
-      this.location = response.json().results[0].formatted_address;
+      this.location = response.json().results[0];
+      console.log(this.location);
     });
   }
 
   getLatlng(address: string){
     this.geoService.getLatlng(address).subscribe(response => {
-      this.location = response.json().results[0].geometry.location;
+      this.coordinates = response.json().results[0].geometry.location;
+      console.log(this.coordinates);
     });
   }
 

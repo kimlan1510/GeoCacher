@@ -11,3 +11,11 @@
     <button (click)="getAddress(lat.value, lng.value)">Get Address</button>
   </div>
 </form>
+<div *ngIf="location">
+  <p>Address: {{location.formatted_address}}</p>
+</div>
+
+<div *ngIf="coordinates">
+  <p>Latitude: {{coordinates.lat}}</p>
+  <p>Longitude: {{coordinates.lng}}</p>
+</div>
